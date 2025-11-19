@@ -92,19 +92,49 @@ public class GestoreController {
             return;
         }
 
-        double nuovoPrezzo;
-        double nuovaQuantita;
+        String prezzoTxt = txtPrezzo.getText().trim();
+        String quantitaTxt = txtQuantita.getText().trim();
 
-        try{
-            nuovoPrezzo = Double.parseDouble(txtPrezzo.getText());
-            nuovaQuantita = Double.parseDouble(txtQuantita.getText());
-        } catch (NumberFormatException e){
-            showAlert(Alert.AlertType.ERROR, "Errore", "Prezzo o quantità non validi");
+        if (prezzoTxt.isEmpty() && quantitaTxt.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Dati mancanti", "Inserisci il nuovo prezzo o la nuova quantità (o entrambi)");
             return;
         }
 
-        selezionato.setPrezzo(nuovoPrezzo);
-        selezionato.setQuantita(nuovaQuantita);
+        boolean datiValidi = true;
+
+        if (!prezzoTxt.isEmpty()) {
+            try{
+                double nuovoPrezzo = Double.parseDouble(prezzoTxt);
+                if (nuovoPrezzo > 0) {
+                    selezionato.setPrezzo(nuovoPrezzo);
+                } else {
+                    showAlert(Alert.AlertType.ERROR, "Errore", "Il prezzo deve essere maggiore di zero.");
+                    datiValidi = false;
+                }
+            } catch (NumberFormatException e){
+                showAlert(Alert.AlertType.ERROR, "Errore", "Prezzo non valido (inserisci un numero)");
+                datiValidi = false;
+            }
+        }
+
+        if (!datiValidi) return;
+
+        if (!quantitaTxt.isEmpty()) {
+            try{
+                double nuovaQuantita = Double.parseDouble(quantitaTxt);
+                if (nuovaQuantita >= 0) {
+                    selezionato.setQuantita(nuovaQuantita);
+                } else {
+                    showAlert(Alert.AlertType.ERROR, "Errore", "La quantità non può essere negativa.");
+                    datiValidi = false;
+                }
+            } catch (NumberFormatException e){
+                showAlert(Alert.AlertType.ERROR, "Errore", "Quantità non valida (inserisci un numero)");
+                datiValidi = false;
+            }
+        }
+
+        if (!datiValidi) return;
 
         boolean successo = pesceDAO.update(selezionato);
         if (successo){
