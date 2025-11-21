@@ -1,6 +1,6 @@
-package com.example.fishmanagement;
+package com.example.pescevia;
 
-import com.example.fishmanagement.database.DatabaseSetup;
+import com.example.pescevia.database.DatabaseSetup;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

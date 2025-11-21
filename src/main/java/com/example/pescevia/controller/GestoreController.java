@@ -1,7 +1,7 @@
-package com.example.fishmanagement.controller;
+package com.example.pescevia.controller;
 
-import com.example.fishmanagement.database.PesceDAO;
-import com.example.fishmanagement.model.Pesce;
+import com.example.pescevia.database.PesceDAO;
+import com.example.pescevia.model.Pesce;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

@@ -1,4 +1,4 @@
-package com.example.fishmanagement.model;
+package com.example.pescevia.model;
 
 public class Utente {
     private final int id;

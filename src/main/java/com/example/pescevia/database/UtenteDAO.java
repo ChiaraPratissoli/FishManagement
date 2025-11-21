@@ -1,6 +1,6 @@
-package com.example.fishmanagement.database;
+package com.example.pescevia.database;
 
-import com.example.fishmanagement.model.Utente;
+import com.example.pescevia.model.Utente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

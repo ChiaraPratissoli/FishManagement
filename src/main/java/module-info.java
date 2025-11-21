@@ -1,11 +1,11 @@
-module com.example.fishmanagement {
+module com.example.pescevia {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.logging;
     requires java.sql;
 
 
-    opens com.example.fishmanagement.controller to javafx.fxml;
-    opens com.example.fishmanagement.model to javafx.base, javafx.fxml;
-    exports com.example.fishmanagement;
+    opens com.example.pescevia.controller to javafx.fxml;
+    opens com.example.pescevia.model to javafx.base, javafx.fxml;
+    exports com.example.pescevia;
 }

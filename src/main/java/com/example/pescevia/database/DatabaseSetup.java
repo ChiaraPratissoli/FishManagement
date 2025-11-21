@@ -1,4 +1,4 @@
-package com.example.fishmanagement.database;
+package com.example.pescevia.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
