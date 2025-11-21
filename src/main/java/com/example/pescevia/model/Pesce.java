@@ -1,8 +1,8 @@
 package com.example.pescevia.model;
 
 public class Pesce {
-    private int id;
-    private String nome;
+    private final int id;
+    private final String nome;
     private double prezzo;
     private double quantita;
 
@@ -27,14 +27,6 @@ public class Pesce {
 
     public double getQuantita() {
         return quantita;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public void setPrezzo(double prezzo) {
